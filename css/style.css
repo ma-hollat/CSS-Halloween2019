@@ -166,3 +166,65 @@ body {
     content: "";
     height: 10px;
     background: linear-gradient(to right, var(--yellow), transparent);
+}
+
+@media (max-width: 1000px) {
+    .menu {
+        order: -1;
+    }
+    [aria-controls="menu-list"] {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    [aria-expanded="false"] .close {
+        display: none;
+    }
+
+    [aria-expanded="true"] .open {
+        display: none;
+    }
+
+    .menu ul {
+        max-height: 0;
+        overflow: hidden;
+        transform: rotateX(90deg);
+        transition: all 0,5s;
+        font-size: 1rem;
+    }
+
+    .menu ul li {
+        font-size: 1rem;
+    }
+
+    [aria-expanded="true"] ~ul {
+        display: grid;
+        max-height: 500px;
+        transform: rotateX(0);
+    }
+}
+
+@media (max-width: 700px) {
+    body{
+        margin: 0;
+    }
+
+    .top{
+        grid-template-areas: "party party party" "cta1 cta2"
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about img {
+        width: 85%;
+    }
+}
+
+@media (max-width: 500px) {
+    .top {
+        grid-template-areas: "party" "cta1" "cta2"
+    }
+
+}
